@@ -1,0 +1,32 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling>=1.8.0"]
+
+[project]
+name = "brickie"
+version = "0.0.1"
+dependencies = []
+
+[project.optional-dependencies]
+server = [
+    "click>=8.0.0",
+    "tomli>=1.1.0",
+    "build>=0.9.0",
+    "hatchling>=1.8.0",
+    "starlette>=0.23.1",
+    "uvicorn[standard]>=0.2",
+]
+dev = [
+    "watchfiles>=0.18.1",
+]
+test = [
+    "pytest>=7.2,<8",
+    "pytest-xdist>=3.2,<4",
+    "tomli-w>=1,<2",
+]
+
+[project.scripts]
+brickie = "brickie.cli:cli"
+
+[tool.hatch.build.targets.wheel]
+only-include = ['brickie', 'pyodide', 'js']

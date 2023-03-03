@@ -1,0 +1,28 @@
+.__loading-modal {
+  position: absolute;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fbfbfb;
+}
+
+.__loading-spinner {
+	pointer-events: none;
+	width: 8vh;
+	height: 8vh;
+	border: .5vh solid transparent;
+	border-color: #f2f2f2;
+	border-top-color: #0d3c61;
+	border-radius: 100%;
+	animation: __loading-spinner-keyframes 1s linear infinite;
+}
+
+@keyframes __loading-spinner-keyframes {
+  100% {
+    transform: rotate(360deg)
+  }
+}
