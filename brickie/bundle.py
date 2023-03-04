@@ -366,7 +366,8 @@ def build_deps(target_dir) -> list[str]:
         for p in pkg_resources.parse_requirements(config.get('client_dependencies', ()))
     }
     if 'brickie' not in deps:
-        deps['brickie'] = pkg_resources.Requirement.parse('brickie')
+        brickie_version = pkg_resources.get_distribution('brickie').version
+        deps['brickie'] = pkg_resources.Requirement.parse(f'brickie=={brickie_version}')
 
     out = []
     for dep in deps.values():
